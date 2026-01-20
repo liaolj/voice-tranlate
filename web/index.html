@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>实时语音同传学习助手</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>实时语音同传学习助手</h1>
+        <p class="subtitle">
+          点击开始后自动监听，无需手动停启，支持插话与实时字幕。
+        </p>
+      </header>
+
+      <section class="controls">
+        <button id="startBtn" class="primary">开始</button>
+        <button id="stopBtn" class="ghost" disabled>停止</button>
+        <div class="status" id="status">待机中</div>
+      </section>
+
+      <section class="panels">
+        <article>
+          <h2>原文字幕</h2>
+          <div id="sourceText" class="panel"></div>
+        </article>
+        <article>
+          <h2>译文字幕</h2>
+          <div id="translationText" class="panel"></div>
+        </article>
+      </section>
+
+      <section class="settings">
+        <label>
+          翻译方向
+          <select id="direction">
+            <option value="AUTO">自动检测</option>
+            <option value="EN_ZH">EN → ZH</option>
+            <option value="ZH_EN">ZH → EN</option>
+          </select>
+        </label>
+        <label>
+          VAD 灵敏度
+          <input id="vadThreshold" type="range" min="-55" max="-30" value="-42" />
+          <span id="vadValue">-42 dBFS</span>
+        </label>
+      </section>
+
+      <section class="log" id="log"></section>
+    </main>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
